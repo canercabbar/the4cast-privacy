@@ -38,10 +38,11 @@
 
 <h2>1. Hangi verileri topluyoruz?</h2>
 <ul>
-  <li><strong>Takma ad ve avatar:</strong> Oyunda görünmek için sizin seçtiğiniz ad ve avatar. Gerçek adınızı veya e-posta adresinizi istemiyoruz; lütfen takma ad olarak kişisel bilgi yazmayın.</li>
+  <li><strong>Takma ad ve avatar:</strong> Oyunda görünmek için sizin seçtiğiniz ad ve avatar (herhangi bir emoji olabilir). İsterseniz her grup için ayrı bir takma ad ve avatar seçebilirsiniz. Gerçek adınızı veya e-posta adresinizi istemiyoruz; lütfen takma ad olarak kişisel bilgi yazmayın.</li>
   <li><strong>Anonim kullanıcı kimliği:</strong> Uygulama ilk açıldığında hesap, ad/e-posta/telefon gerektirmeyen anonim bir Firebase kimliği oluşturur. Tahminlerinizi sizinle eşleştirmek için kullanılır.</li>
   <li><strong>Oyun verisi:</strong> Katıldığınız grupların kodu, gruptaki üyeliğiniz, maç tahminleriniz, aldığınız puanlar ve seçtiğiniz favori takım.</li>
-  <li><strong>Grup yöneticisi ayarları:</strong> Bir grubu kurduysanız grubun adı, takip edilen takımlar, puan ayarları ve isteğe bağlı grup PIN'i. PIN, düz metin olarak değil, özet (hash) olarak saklanır.</li>
+  <li><strong>Grup yöneticisi ayarları:</strong> Grubun adı, takip edilen takımlar, grubun puanlama kuralları, yapay zekâ yorum seviyesi ve 6 haneli grup yöneticisi PIN'i. Grubu kuran kişi PIN'i belirler; PIN düz metin olarak değil, özet (hash) olarak saklanır. Grup Yöneticisi Paneli gruptaki herkese görünür, ancak PIN'i bilmeyen kişi ayarları değiştiremez.</li>
+  <li><strong>Yönetici tarafından eklenen üyeler:</strong> Grup yöneticisi, uygulamayı kullanmayan bir arkadaşı için yalnızca bir görünen ad girerek "üye" ekleyebilir ve onun tahminlerini kendisi girebilir. Bu kayıtlar bir hesaba bağlı değildir; ad ve tahminlerden başka bir şey içermez. Yönetici bu üyeyi, tahmin ve puanlarıyla birlikte istediği zaman silebilir.</li>
   <li><strong>Cihazda saklananlar:</strong> Tercihleriniz (ör. bildirim ve yorum ayarları) cihazınızda saklanır.</li>
 </ul>
 <p>Konum, rehber, fotoğraf, mikrofon veya kamera verisi toplamıyoruz. Reklam kimliğinizi kullanmıyor, sizi uygulamalar veya siteler arasında izlemiyor, reklam göstermiyoruz.</p>
@@ -52,17 +53,17 @@
 <h2>3. Üçüncü taraf hizmetler</h2>
 <ul>
   <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, App Check): Hesabı, grup ve tahmin verilerini saklar. Grup, tahmin ve profil verileriniz (Cloud Firestore) Google'ın Milano (İtalya, AB) veri merkezinde saklanır. Kimlik doğrulama gibi diğer Firebase hizmetleri Google'ın başka bölgelerdeki sunucularını da kullanabilir. App Check, uygulamanın gerçek ve değiştirilmemiş olduğunu doğrulamak için Apple'ın App Attest hizmetini kullanır; bu sırada cihaz doğrulama bilgisi ve IP adresiniz teknik olarak işlenebilir.</li>
-  <li><strong>Google Gemini (Firebase AI Logic):</strong> Round yorumunu yazmak için, o round'a ait takma adlar, puanlar, maç skorları, tahminler ve favori takım bilgileri yapay zekâ modeline gönderilir. Round yorumu uygulamanın standart bir parçasıdır ve kapatılamaz; Profil ekranındaki "Yapay Zeka Yorum Seviyesi" ayarı (Yapıcı, Dengeli, Sivri) yalnızca yorumun tonunu belirler, hangi verilerin gönderildiğini değiştirmez. Yapay zekâ yanıt vermezse hazır şablon yorumlar kullanılır ve bu durumda veri gönderilmez.</li>
+  <li><strong>Google Gemini (Firebase AI Logic):</strong> Round yorumunu yazmak için, o round'a ait takma adlar, puanlar, maç skorları, tahminler ve favori takım bilgileri yapay zekâ modeline gönderilir. Round yorumu uygulamanın standart bir parçasıdır ve kapatılamaz; Grup Yöneticisi Paneli'nden seçilen "Yapay Zeka Yorum Seviyesi" (Yapıcı, Dengeli, Sivri) grubun tamamı için geçerlidir ve yalnızca yorumun tonunu belirler, hangi verilerin gönderildiğini değiştirmez. Yorum yalnızca tahmin, skor ve takımlar üzerinden yazılır; küfür, hakaret ve kişisel konular yasaktır. Yapay zekâ yanıt vermezse hazır şablon yorumlar kullanılır ve bu durumda veri gönderilmez.</li>
   <li><strong>EuroLeague herkese açık veri servisi:</strong> Maç programı, sonuçlar ve puan durumunu almak için uygulama bu servisten veri ister. Bu isteklerde kişisel verileriniz gönderilmez, ancak her internet isteğinde olduğu gibi IP adresiniz bu sunucuya görünür.</li>
 </ul>
 <p>Bu hizmetlerin kendi gizlilik politikaları geçerlidir: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a> ve <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
 
 <h2>4. Verileri ne kadar saklıyoruz?</h2>
-<p>Verileriniz, siz silene kadar saklanır. Gruptan ayrılırsanız tahmin ve puanlarınız grupta kalır; aynı kodla tekrar katılabilirsiniz.</p>
+<p>Verileriniz, siz silene kadar saklanır. Gruptan ayrılırsanız tahmin, puan ve gruptaki takma adınız grupta saklanır; aynı grup kodu ile tekrar katılırsanız hepsi geri gelir. Bunu istemiyorsanız hesabınızı silebilirsiniz. Grup yöneticisi bir üyeyi gruptan çıkarırken tahmin ve puanlarının kalmasını ya da silinmesini seçebilir.</p>
 
 <h2>5. Hesabınızı ve verilerinizi silme</h2>
-<p>Uygulamada <strong>Profil → "Gruptan ayrıl veya hesabı sil" → "Hesabımı ve Verilerimi Sil"</strong> adımlarıyla hesabınızı kendiniz silebilirsiniz. Bu işlem takma adınızı, avatarınızı, favori takımınızı ve profil kayıtlarınızı siler, sizi tüm gruplardan çıkarır ve anonim Firebase hesabınızı kapatır.</p>
-<p><strong>Önemli:</strong> Diğer grup üyelerinin puanları ve sıralaması değişmesin diye geçmiş tahminleriniz ve puanlarınız, sizinle bağlantısı kalmamış anonim bir kimlikle grupta kalır. Bu kayıtlar sizin adınızı veya profilinizi içermez. Kurucusu olduğunuz gruplar sıradaki üyeye devredilir; başka üye yoksa grup silinir.</p>
+<p>Uygulamada <strong>Profil → en alttaki "Hesabımı Sil"</strong> adımlarıyla hesabınızı kendiniz silebilirsiniz. Bu işlem takma adınızı, avatarınızı, favori takımınızı ve profil kayıtlarınızı siler, sizi tüm gruplardan çıkarır ve anonim Firebase hesabınızı kapatır.</p>
+<p><strong>Önemli:</strong> Diğer grup üyelerinin puanları ve sıralaması değişmesin diye geçmiş tahminleriniz ve puanlarınız, sizinle bağlantısı kalmamış anonim bir kimlikle grupta kalır. Bu kayıtlar sizin adınızı veya profilinizi içermez. Kurucusu olduğunuz gruplar sıradaki gerçek üyeye devredilir; başka gerçek üye yoksa grup silinir.</p>
 <p>Uygulamaya erişemiyorsanız, silme talebinizi <a href="mailto:ckodevi@gmail.com">ckodevi@gmail.com</a> adresine yazabilirsiniz.</p>
 
 <h2>6. Haklarınız</h2>
@@ -87,10 +88,11 @@
 
 <h2>1. What data do we collect?</h2>
 <ul>
-  <li><strong>Nickname and avatar:</strong> A name and avatar you choose to appear in the game. We do not ask for your real name or email address; please do not put personal information in your nickname.</li>
+  <li><strong>Nickname and avatar:</strong> A name and avatar you choose to appear in the game (any emoji can be an avatar). You may choose a separate nickname and avatar for each group. We do not ask for your real name or email address; please do not put personal information in your nickname.</li>
   <li><strong>Anonymous user ID:</strong> When you first open the app, it creates an anonymous Firebase ID that needs no name, email or phone number. It links your predictions to you.</li>
   <li><strong>Game data:</strong> The codes of the groups you join, your membership, your match predictions, your points and your favorite team.</li>
-  <li><strong>Group admin settings:</strong> If you create a group: its name, tracked teams, scoring options and an optional group PIN. The PIN is stored as a hash, not as plain text.</li>
+  <li><strong>Group admin settings:</strong> The group's name, tracked teams, scoring rules, AI commentary level and a 6-digit group admin PIN. The person who creates the group sets the PIN, which is stored as a hash, not as plain text. The Group Admin Panel is visible to every member, but without the PIN settings cannot be changed.</li>
+  <li><strong>Members added by an admin:</strong> A group admin can add a "member" for a friend who does not use the app by entering only a display name, and can enter that friend's predictions. These entries are not linked to any account and contain nothing but a name and predictions. The admin can delete such a member, with their predictions and points, at any time.</li>
   <li><strong>On your device:</strong> Your preferences (for example notification and commentary settings) are stored on your device.</li>
 </ul>
 <p>We do not collect location, contacts, photos, microphone or camera data. We do not use your advertising identifier, we do not track you across apps or websites, and we show no ads.</p>
@@ -101,17 +103,17 @@
 <h2>3. Third-party services</h2>
 <ul>
   <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, App Check): stores the account, group and prediction data on Google's servers, which may be outside Türkiye. App Check uses Apple's App Attest to verify the app is genuine and unmodified; device attestation data and your IP address may be technically processed for this.</li>
-  <li><strong>Google Gemini (Firebase AI Logic):</strong> To write the round commentary, the nicknames, points, match scores, predictions and favorite teams of that round are sent to an AI model. The round commentary is a standard part of the app and cannot be turned off; the "AI Commentary Level" setting on the Profile screen (Constructive, Balanced, Teasing) only changes the tone of the commentary, not which data is sent. If the AI does not respond, built-in template comments are used and no data is sent in that case.</li>
+  <li><strong>Google Gemini (Firebase AI Logic):</strong> To write the round commentary, the nicknames, points, match scores, predictions and favorite teams of that round are sent to an AI model. The round commentary is a standard part of the app and cannot be turned off; the "AI Commentary Level" (Constructive, Balanced, Sharp) is chosen in the Group Admin Panel for the whole group and only changes the tone of the commentary, not which data is sent. Comments are based only on predictions, scores and teams; insults, profanity and personal topics are not allowed. If the AI does not respond, built-in template comments are used and no data is sent in that case.</li>
   <li><strong>EuroLeague public data service:</strong> The app requests match schedules, results and standings from it. No personal data is sent, but as with any internet request your IP address is visible to that server.</li>
 </ul>
 <p>These services have their own privacy policies: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a> and <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
 
 <h2>4. How long do we keep data?</h2>
-<p>Until you delete it. If you leave a group, your predictions and points stay in that group, and you can rejoin with the same code.</p>
+<p>Until you delete it. If you leave a group, your predictions, points and your nickname in that group are kept, and they come back if you rejoin with the same group code. If you do not want that, you can delete your account. When a group admin removes a member from a group, the admin can choose to keep or delete that member's predictions and points.</p>
 
 <h2>5. Deleting your account and data</h2>
-<p>You can delete your account in the app: <strong>Profile → "Leave group or delete account" → "Delete my account and data"</strong>. This removes your nickname, avatar, favorite team and profile records, removes you from all groups and closes your anonymous Firebase account.</p>
-<p><strong>Important:</strong> So that other group members' scores and rankings do not change, your past predictions and points remain in the group under an anonymous ID that is no longer linked to you. These records contain no name or profile. Groups you founded are handed over to the next member; if there is no other member, the group is deleted.</p>
+<p>You can delete your account in the app: <strong>Profile → "Delete my account" at the bottom</strong>. This removes your nickname, avatar, favorite team and profile records, removes you from all groups and closes your anonymous Firebase account.</p>
+<p><strong>Important:</strong> So that other group members' scores and rankings do not change, your past predictions and points remain in the group under an anonymous ID that is no longer linked to you. These records contain no name or profile. Groups you founded are handed over to the next real member; if there is no other real member, the group is deleted.</p>
 <p>If you cannot access the app, email your deletion request to <a href="mailto:ckodevi@gmail.com">ckodevi@gmail.com</a>.</p>
 
 <h2>6. Your rights</h2>
